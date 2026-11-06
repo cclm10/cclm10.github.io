@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>梁安业 · 短视频编导作品集</title>
+<meta name="description" content="梁安业，电商 3C 短视频编导 / 拍摄剪辑。编、拍、剪、发全流程，AIGC 批量产能，千川投流内容联动。">
+<style>
+:root{
+  --bg:#09090a;
+  --panel:#111113;
+  --panel-2:#17171a;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.16);
+  --txt:#f4f1ec;
+  --muted:#8d887f;
+  --muted-2:#5f5b55;
+  --gold:#e3a94a;
+  --gold-dim:rgba(227,169,74,.14);
+  --sans:"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);font-family:var(--sans);
+  line-height:1.7;letter-spacing:.01em;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(900px 500px at 78% -8%, rgba(227,169,74,.10), transparent 60%),
+    radial-gradient(700px 420px at 5% 8%, rgba(90,120,200,.07), transparent 62%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{position:relative;z-index:3;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,5vw,56px);
+  border-bottom:1px solid transparent;transition:.4s;
+  backdrop-filter:blur(0px);
+}
+nav.solid{background:rgba(9,9,10,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.14em}
+.brand b{font-weight:600}
+.brand i{display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.navlinks{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+.navlinks a{color:inherit;text-decoration:none;transition:.25s;position:relative}
+.navlinks a:hover{color:var(--txt)}
+@media(max-width:760px){.navlinks{display:none}}
+
+/* ---------- hero ---------- */
+header{min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:28px;
+  padding:7px 14px;border:1px solid rgba(227,169,74,.28);border-radius:99px;background:var(--gold-dim);
+}
+h1{
+  font-size:clamp(64px,13vw,168px);line-height:.86;font-weight:800;letter-spacing:-.04em;
+  margin-bottom:26px;
+}
+h1 span{-webkit-text-stroke:0;color:var(--gold);font-size:.5em;vertical-align:.14em;margin-left:.04em}
+.hero-sub{
+  font-size:clamp(17px,2.4vw,26px);font-weight:500;color:var(--txt);
+  margin-bottom:18px;letter-spacing:.04em;
+}
+.hero-sub em{font-style:normal;color:var(--gold)}
+.hero-lead{max-width:620px;color:var(--muted);font-size:15.5px;line-height:1.9}
+.hero-lead b{color:var(--txt);font-weight:500}
+
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:64px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--line);
+}
+.stat{background:var(--bg);padding:26px 20px 24px;position:relative}
+.stat .num{font-size:clamp(26px,4vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat .num small{font-size:.42em;font-weight:600;letter-spacing:.02em;margin-left:2px;color:var(--gold)}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:8px;letter-spacing:.06em}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+.scroll-cue{position:absolute;bottom:34px;left:clamp(20px,5vw,56px);display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;color:var(--muted-2)}
+.scroll-cue .bar{width:44px;height:1px;background:var(--line-strong);position:relative;overflow:hidden}
+.scroll-cue .bar::after{content:"";position:absolute;inset:0;width:16px;background:var(--gold);animation:run 2.2s infinite}
+@keyframes run{0%{transform:translateX(-16px)}100%{transform:translateX(44px)}}
+
+/* ---------- section ---------- */
+section{padding:clamp(70px,11vw,130px) 0;position:relative}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:46px;flex-wrap:wrap}
+.sec-num{font-size:12px;letter-spacing:.24em;color:var(--gold);margin-bottom:14px}
+h2{font-size:clamp(28px,4.6vw,46px);line-height:1.15;font-weight:700;letter-spacing:-.02em}
+.sec-desc{color:var(--muted);font-size:14px;max-width:340px;line-height:1.8}
+
+/* ---------- filters ---------- */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.chip{
+  padding:9px 18px;border-radius:99px;border:1px solid var(--line-strong);
+  background:transparent;color:var(--muted);font-size:13px;font-family:inherit;cursor:pointer;transition:.25s;
+}
+.chip:hover{color:var(--txt);border-color:rgba(255,255,255,.3)}
+.chip.on{background:var(--txt);color:#0a0a0b;border-color:var(--txt);font-weight:600}
+
+/* ---------- works grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:clamp(12px,1.6vw,20px)}
+.card{
+  position:relative;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--panel);
+  aspect-ratio:9/16;border:1px solid var(--line);transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s;
+}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .4s;filter:saturate(.94) brightness(.92)}
+.card:hover{transform:translateY(-6px);border-color:rgba(227,169,74,.5)}
+.card:hover img{transform:scale(1.05);filter:saturate(1.05) brightness(1)}
+.card .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.55) 30%,rgba(0,0,0,.06) 58%,rgba(0,0,0,0) 74%)}
+.card .tag{
+  position:absolute;top:12px;left:12px;font-size:11px;letter-spacing:.1em;
+  padding:5px 10px;border-radius:6px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(6px);color:#eee;
+}
+.card .info{position:absolute;left:14px;right:14px;bottom:13px}
+.card .t{font-size:14.5px;font-weight:600;line-height:1.4;margin-bottom:4px}
+.card .m{font-size:11.5px;color:rgba(255,255,255,.62);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.card .play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);
+  width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.94);
+  display:grid;place-items:center;opacity:0;transition:.35s;
+}
+.card .play::after{content:"";border-left:15px solid #111;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.card:hover .play{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.card.hide{display:none}
+
+/* ---------- modal ---------- */
+.modal{
+  position:fixed;inset:0;z-index:100;display:none;place-items:center;
+  background:rgba(4,4,5,.94);backdrop-filter:blur(18px);padding:24px;
+}
+.modal.on{display:grid;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal-inner{position:relative;width:100%;max-width:440px}
+.modal video{width:100%;max-height:86svh;border-radius:12px;display:block;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.modal .cap{margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.modal .cap .ct{font-size:14px;font-weight:600}
+.modal .cap .cm{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.x{
+  position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--line-strong);background:rgba(20,20,22,.7);color:#fff;cursor:pointer;
+  display:grid;place-items:center;font-size:15px;transition:.25s;backdrop-filter:blur(10px);z-index:5;
+}
+.x:hover{background:rgba(255,255,255,.16);transform:rotate(90deg)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:110;display:none;place-items:center;background:rgba(3,3,4,.96);padding:28px}
+.lb.on{display:grid}
+.lb img{max-width:96vw;max-height:88svh;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.8)}
+
+
+/* ---------- data strip ---------- */
+.dgroup{margin-bottom:38px}
+.dgroup:last-of-type{margin-bottom:0}
+.dgroup-h{font-size:11.5px;letter-spacing:.18em;color:var(--muted-2);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.dgroup-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.dwide{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.dwide .shot:last-child:nth-child(odd){grid-column:1/-1}
+@media(max-width:760px){.dwide{grid-template-columns:1fr}}
+.dphones{display:flex;gap:clamp(14px,2vw,26px);flex-wrap:wrap}
+.dphones .shot{flex:1 1 240px;max-width:320px}
+.shot{
+  position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  background:var(--panel);cursor:zoom-in;transition:.35s;
+}
+.shot:hover{border-color:rgba(227,169,74,.45);transform:translateY(-4px)}
+.shot img{width:100%;display:block;height:auto;filter:brightness(.94);transition:.5s}
+.shot:hover img{filter:brightness(1.04)}
+.shot .sl{position:absolute;left:0;right:0;bottom:0;padding:30px 12px 10px;font-size:11.5px;letter-spacing:.08em;color:#e8e4dd;
+  background:linear-gradient(to top,rgba(0,0,0,.92),transparent)}
+.data-note{margin-top:20px;font-size:12px;color:var(--muted-2);letter-spacing:.04em}
+
+/* ---------- capability ---------- */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:980px){.caps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.caps{grid-template-columns:1fr}}
+.cap{background:var(--bg);padding:34px 26px;transition:.35s;position:relative;overflow:hidden}
+.cap:hover{background:var(--panel)}
+.cap .k{font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:16px}
+.cap h3{font-size:18px;font-weight:650;margin-bottom:12px;line-height:1.4}
+.cap p{font-size:13.5px;color:var(--muted);line-height:1.85}
+.cap p b{color:var(--txt);font-weight:600}
+
+/* ---------- project table ---------- */
+.plist{border-top:1px solid var(--line)}
+.prow{
+  display:grid;grid-template-columns:1.3fr 1fr 1fr 1.5fr;gap:16px;align-items:center;
+  padding:20px 8px;border-bottom:1px solid var(--line);font-size:13.5px;transition:.25s;
+}
+.prow:hover{background:var(--panel);padding-left:16px}
+.prow.h{color:var(--muted-2);font-size:11.5px;letter-spacing:.16em;padding:12px 8px}
+.prow .pn{font-weight:600;font-size:14.5px}
+.prow .pv{font-variant-numeric:tabular-nums;color:var(--txt)}
+.prow .pv b{color:var(--gold);font-weight:700}
+.prow .pd{color:var(--muted);font-size:12.5px}
+@media(max-width:720px){
+  .prow{grid-template-columns:1fr 1fr;gap:6px 14px;padding:16px 4px}
+  .prow.h{display:none}
+  .prow .pd{grid-column:1/-1}
+}
+
+/* ---------- contact ---------- */
+footer{border-top:1px solid var(--line);padding:clamp(60px,9vw,100px) 0 40px;position:relative}
+.contact-big{font-size:clamp(30px,6vw,60px);font-weight:750;line-height:1.15;letter-spacing:-.03em;margin-bottom:34px}
+.contact-big span{color:var(--gold)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:46px}
+.citem .cl{font-size:11px;letter-spacing:.2em;color:var(--muted-2);margin-bottom:8px}
+.citem .cv{font-size:15.5px;color:var(--txt);font-variant-numeric:tabular-nums;
+  text-decoration:none;border-bottom:1px solid transparent;transition:.25s}
+a.cv:hover{border-bottom-color:var(--gold);color:var(--gold)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:99px;
+  background:var(--txt);color:#0a0a0b;font-size:14px;font-weight:650;text-decoration:none;
+  transition:.3s;border:1px solid var(--txt);
+}
+.btn:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--txt);border-color:var(--line-strong);font-weight:500}
+.btn.ghost:hover{background:transparent;color:var(--gold);border-color:var(--gold)}
+.foot-bottom{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted-2);letter-spacing:.06em}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* 截图预览模式：?flat 关闭动画与满屏高度，便于整页截屏 */
+body.flat header{min-height:auto;padding:120px 0 90px}
+body.flat .rv{opacity:1!important;transform:none!important;transition:none!important}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="brand"><i></i><b>梁安业</b><span style="color:var(--muted-2);letter-spacing:.1em">/ 短视频编导</span></div>
+  <div class="navlinks">
+    <a href="#works">作品</a>
+    <a href="#data">数据</a>
+    <a href="#caps">能力</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow rv">E-commerce Short Video · 2024—2026</div>
+    <h1 class="rv">梁安业<span>。</span></h1>
+    <div class="hero-sub rv">电商 3C 短视频 <em>编 · 拍 · 剪 · 发</em> 全流程</div>
+    <p class="hero-lead rv">
+      2 年+ 消费电子赛道短视频经验，从 <b>0 粉起号到几十万粉</b>，也跟过几十万粉到几百万粉的账号。
+      擅长以「黄金 3 秒」重构开头、用数据反推选题，并用即创 / 小云雀等 AIGC 工具把单日素材产能推到 <b>30 条+</b>。
+      剪的不只是片子，是能跑量的素材。
+    </p>
+
+    <div class="stats rv">
+      <div class="stat"><div class="num" data-to="180">0<small>+</small></div><div class="lbl">月均剪辑条数</div></div>
+      <div class="stat"><div class="num" data-to="15">0<small>%</small></div><div class="lbl">爆款率（团队均值 10%）</div></div>
+      <div class="stat"><div class="num" data-to="600">0<small>w+</small></div><div class="lbl">单条最高播放</div></div>
+      <div class="stat"><div class="num" data-to="300">0<small>w</small></div><div class="lbl">千川单月消耗峰值</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="bar"></span>SCROLL</div>
+</header>
+
+<!-- ============ 作品 ============ -->
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="sec-num">01 — SELECTED WORKS</div>
+        <h2>精选作品</h2>
+      </div>
+      <p class="sec-desc">12 条成片，覆盖口播带货、场景剧情、直播切片与产品测评四类。点击任意封面播放。</p>
+    </div>
+
+    <div class="filters rv">
+      <button class="chip on" data-f="all">全部 12</button>
+      <button class="chip" data-f="talk">口播带货</button>
+      <button class="chip" data-f="story">场景剧情</button>
+      <button class="chip" data-f="live">直播切片</button>
+      <button class="chip" data-f="review">产品测评</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ============ 数据 ============ -->
+<section id="data">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="sec-num">02 — DATA</div>
+        <h2>投放与账号数据</h2>
+      </div>
+      <p class="sec-desc">巨量千川素材分析后台、抖音作品页与账号后台截图。点击查看原图。</p>
+    </div>
+    <div class="dgroup rv">
+      <div class="dgroup-h">投放与账号后台 · 巨量千川 / 抖音</div>
+      <div class="dwide" id="wideShots"></div>
+    </div>
+    <div class="dgroup rv">
+      <div class="dgroup-h">成片在抖音的实际表现</div>
+      <div class="dphones" id="phoneShots"></div>
+    </div>
+    <p class="data-note">* 截图自投放与账号后台，数据随投放周期波动，仅作参考。点击可查看原图。</p>
+  </div>
+</section>
+
+<!-- ============ 能力 ============ -->
+<section id="caps">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="sec-num">03 — CAPABILITY</div>
+        <h2>六个关键能力</h2>
+      </div>
+      <p class="sec-desc">不是「会剪片」，而是能把片子剪成能跑量的素材。</p>
+    </div>
+
+    <div class="caps rv">
+      <div class="cap">
+        <div class="k">01 / FULL PROCESS</div>
+        <h3>编拍剪发一人闭环</h3>
+        <p>从选品卖点提炼、脚本结构（前 3 秒钩子 → 痛点 → 卖点 → 福利引导）到带队拍摄、剪辑出片、按时段发布与 3 天后复盘，全流程独立完成。有 <b>0 粉到几十万粉</b> 的完整起号经历。</p>
+      </div>
+      <div class="cap">
+        <div class="k">02 / TRAFFIC SENSE</div>
+        <h3>黄金 3 秒 · 数据反推</h3>
+        <p>以「黄金 3 秒」剪辑法则重构开头，开头留存率提升至 <b>65%</b>（行业均值 50–55%）；完播率优化至 <b>35%+</b>（软广类基准 25–30%）。</p>
+      </div>
+      <div class="cap">
+        <div class="k">03 / AIGC PRODUCTION</div>
+        <h3>AIGC 批量产能</h3>
+        <p>即创（AI 脚本裂变、数字人口播、AI 混剪）与 小云雀（智能生视频、爆款复刻）深度接入工作流：单日素材 <b>10 条 → 30 条+</b>，单条成本降约 <b>50%</b>，制作周期从 1 天压到 1 小时内。</p>
+      </div>
+      <div class="cap">
+        <div class="k">04 / MEDIA BUYING</div>
+        <h3>内容与投流联动</h3>
+        <p>能看懂千川消耗与 ROI，从素材端反推投放表现：个人月消耗均值 <b>100w</b>、峰值 <b>300w</b>，跑量素材与实拍素材稳定性持平。</p>
+      </div>
+      <div class="cap">
+        <div class="k">05 / VISUAL CRAFT</div>
+        <h3>科班视觉底子</h3>
+        <p>视觉传达专业全日制本科，专业前 10%。字体—版式—色彩—品牌完整体系，独立完成封面、海报、详情页与视频包装；调色预设 + LUT 统一账号视觉语言。</p>
+      </div>
+      <div class="cap">
+        <div class="k">06 / QUALITY</div>
+        <h3>流程与合规</h3>
+        <p>建立素材验收标准，问题素材率降低 <b>60%</b>；软广要素检查表使广告合规率从 70% 提升至 <b>95%</b>；广告视频剪辑 <b>0 投诉</b>。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 项目 ============ -->
+<section id="projects" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="sec-num">04 — PROJECT MATRIX</div>
+        <h2>操盘过的产品线</h2>
+      </div>
+      <p class="sec-desc">3C 类目直播及商品卡项目，覆盖从点歌机到 AI 硬件的完整产品矩阵。</p>
+    </div>
+    <div class="plist rv">
+      <div class="prow h"><div>产品线</div><div>月 GMV 峰值</div><div>个人月消耗峰值</div><div>爆款表现</div></div>
+      <div class="prow"><div class="pn">点歌机 · K 歌影视一体机</div><div class="pv"><b>3000 万</b></div><div class="pv">300w+</div><div class="pd">单条 500w+，爆款 20+，抖音直播 3C 类目第一</div></div>
+      <div class="prow"><div class="pn">K 歌音响</div><div class="pv">1000 万</div><div class="pv">150w+</div><div class="pd">单条 200w+，爆款 20+</div></div>
+      <div class="prow"><div class="pn">AI 时间宝 · AI 闹钟</div><div class="pv">300 万</div><div class="pv">80w+</div><div class="pd">单条 600w+，爆款 8+</div></div>
+      <div class="prow"><div class="pn">商品卡 · 扩音器 / 降噪耳机 / 收音机</div><div class="pv">300 万</div><div class="pv">100w+</div><div class="pd">覆盖多品类长尾素材</div></div>
+      <div class="prow"><div class="pn">K 歌耳机 / 翻译耳机</div><div class="pv">各 100 万</div><div class="pv">30w+</div><div class="pd">爆款 10+</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-big rv">聊一聊，<br>让你的素材<span>先跑起来</span>。</div>
+    <div class="contact-grid rv">
+      <div class="citem"><div class="cl">PHONE</div><a class="cv" href="tel:13379883803">133-7988-3803</a></div>
+      <div class="citem"><div class="cl">EMAIL</div><a class="cv" href="mailto:3108876462@qq.com">3108876462@qq.com</a></div>
+      <div class="citem"><div class="cl">CITY</div><div class="cv">深圳</div></div>
+      <div class="citem"><div class="cl">POSITION</div><div class="cv">短视频编导 / 拍摄剪辑</div></div>
+    </div>
+    <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn" href="assets/doc/resume.pdf" download>下载简历 PDF</a>
+      <a class="btn ghost" href="#works">回到作品</a>
+    </div>
+    <div class="foot-bottom">
+      <span>梁安业 · 短视频编导作品集</span>
+      <span>本页视频为压缩预览版，原片可另行提供</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 视频弹窗 -->
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <button class="x" id="mclose" aria-label="关闭">✕</button>
+    <video id="player" playsinline controls preload="none"></video>
+    <div class="cap"><div class="ct" id="mtitle"></div><div class="cm" id="mmeta"></div></div>
+  </div>
+</div>
+
+<!-- 图片灯箱 -->
+<div class="lb" id="lb">
+  <button class="x" id="lclose" aria-label="关闭">✕</button>
+  <img id="lbimg" alt="后台数据截图">
+</div>
+
+<script>
+const FLAT = new URLSearchParams(location.search).has('flat');
+if (FLAT) document.body.classList.add('flat');
+
+const WORKS = [
+  {f:'work00', cat:'story',  t:'家居场景 · 产品礼盒剧情', m:'K 歌音响 · 4′28″'},
+  {f:'work01', cat:'talk',   t:'家居口播 · 无线麦克风',   m:'1′02″'},
+  {f:'work02', cat:'story',  t:'家庭影音房 · 点歌机套装', m:'点歌机 · 3′28″'},
+  {f:'work03', cat:'talk',   t:'家居口播 · K 歌音响',     m:'0′58″'},
+  {f:'work04', cat:'talk',   t:'卖场实拍 · 便携音箱演示', m:'1′18″'},
+  {f:'work05', cat:'review', t:'产品测评 · 智能桌面设备', m:'1′03″'},
+  {f:'work06', cat:'talk',   t:'户外口播 · 蓝牙音响',     m:'1′12″'},
+  {f:'work07', cat:'live',   t:'直播切片 · 家庭智能音响', m:'2′55″'},
+  {f:'work08', cat:'talk',   t:'卖场口播 · K 歌音响',     m:'1′04″'},
+  {f:'work09', cat:'talk',   t:'家居口播 · 第四代小音箱', m:'0′45″'},
+  {f:'work10', cat:'talk',   t:'户外口播 · AI 学习设备',  m:'1′12″'},
+  {f:'work11', cat:'review', t:'产品测评 · AI 智能终端',  m:'3′22″'}
+];
+const CAT = {talk:'口播带货', story:'场景剧情', live:'直播切片', review:'产品测评'};
+
+const SHOTS_WIDE = [
+  {f:'shot02', l:'巨量千川 · 素材分析后台（683 条素材）'},
+  {f:'shot04', l:'巨量千川 · 素材消耗与成交明细'},
+  {f:'shot05', l:'巨量千川 · 账户数据看板'},
+  {f:'shot00', l:'抖音 · 作品列表'},
+  {f:'shot07', l:'作品数据 · 播放与互动明细'}
+];
+const SHOTS_PHONE = [
+  {f:'shot06', l:'抖音作品页 · K 歌音响'},
+  {f:'shot08', l:'抖音作品页 · 带货口播'}
+];
+
+/* 作品卡 */
+const grid = document.getElementById('grid');
+grid.innerHTML = WORKS.map(w => `
+  <div class="card rv" data-cat="${w.cat}" data-f="${w.f}" data-t="${w.t}" data-m="${w.m}">
+    <img src="assets/poster/${w.f}.jpg" alt="${w.t}" loading="lazy">
+    <div class="veil"></div>
+    <div class="tag">${CAT[w.cat]}</div>
+    <div class="play"></div>
+    <div class="info"><div class="t">${w.t}</div><div class="m">${w.m}</div></div>
+  </div>`).join('');
+
+/* 数据截图 */
+const shotHtml = s => `
+  <div class="shot" data-src="assets/img/${s.f}.jpg">
+    <img src="assets/img/${s.f}.jpg" alt="${s.l}" loading="lazy">
+    <div class="sl">${s.l}</div>
+  </div>`;
+document.getElementById('wideShots').innerHTML = SHOTS_WIDE.map(shotHtml).join('');
+document.getElementById('phoneShots').innerHTML = SHOTS_PHONE.map(shotHtml).join('');
+
+/* 筛选 */
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+  document.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+  c.classList.add('on');
+  const f = c.dataset.f;
+  document.querySelectorAll('.card').forEach(card => {
+    const show = f === 'all' || card.dataset.cat === f;
+    card.classList.toggle('hide', !show);
+  });
+}));
+
+/* 视频弹窗 */
+const modal = document.getElementById('modal'), player = document.getElementById('player');
+function openVideo(card){
+  const f = card.dataset.f;
+  player.src = `assets/video/${f}.mp4`;
+  player.poster = `assets/poster/${f}.jpg`;
+  document.getElementById('mtitle').textContent = card.dataset.t;
+  document.getElementById('mmeta').textContent = card.dataset.m;
+  modal.classList.add('on');
+  document.body.style.overflow = 'hidden';
+  player.play().catch(()=>{});
+}
+function closeVideo(){
+  modal.classList.remove('on');
+  player.pause(); player.removeAttribute('src'); player.load();
+  document.body.style.overflow = '';
+}
+grid.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => openVideo(c)));
+document.getElementById('mclose').addEventListener('click', closeVideo);
+modal.addEventListener('click', e => { if (e.target === modal) closeVideo(); });
+
+/* 灯箱 */
+const lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg');
+document.querySelectorAll('.shot').forEach(s => s.addEventListener('click', () => {
+  lbimg.src = s.dataset.src; lb.classList.add('on'); document.body.style.overflow = 'hidden';
+}));
+function closeLb(){ lb.classList.remove('on'); document.body.style.overflow = ''; }
+document.getElementById('lclose').addEventListener('click', closeLb);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape'){ if (modal.classList.contains('on')) closeVideo(); if (lb.classList.contains('on')) closeLb(); }
+});
+
+/* 滚动进场 */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i) => {
+  el.style.transitionDelay = (Math.min(i, 6) * 40) + 'ms';
+  io.observe(el);
+});
+
+/* 数字滚动 */
+const nio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const el = e.target, to = +el.dataset.to, unit = el.querySelector('small');
+  const u = unit ? unit.outerHTML : '';
+  let cur = 0, start = null;
+  function step(ts){
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / 1100, 1);
+    const v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+    el.innerHTML = v + u;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+  nio.unobserve(el);
+}), {threshold:.6});
+document.querySelectorAll('.num[data-to]').forEach(el => {
+  if (FLAT){
+    const u = el.querySelector('small');
+    el.innerHTML = el.dataset.to + (u ? u.outerHTML : '');
+    return;
+  }
+  nio.observe(el);
+});
+
+/* 导航背景 */
+const navEl = document.getElementById('nav');
+addEventListener('scroll', () => navEl.classList.toggle('solid', scrollY > 40), {passive:true});
+
+/* 预览模式：?play=workXX 直接打开该作品 */
+const PLAY = new URLSearchParams(location.search).get('play');
+if (PLAY){
+  const c = document.querySelector(`.card[data-f="${PLAY}"]`);
+  if (c) setTimeout(() => openVideo(c), 300);
+}
+
+</script>
+</body>
+</html>
